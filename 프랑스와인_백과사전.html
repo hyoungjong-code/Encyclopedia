@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>처음 만나는 프랑스 와인</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Orbitron:wght@600;800&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#ffd8f4; --bg2:#ddd4ff; --bg3:#c8f4ff; --bg4:#fff1c9; --spark:rgba(255,255,255,.9);
+  --ink:#2a1840; --soft:#6a5a85;
+  --win:rgba(255,255,255,.74); --winline:#b7a6e8; --title1:#ffffff; --title2:#b9c0d4;
+  --gel1:#ffe0f7; --gel2:#ff7ad9; --gel3:#9b5cff; --gel4:#d3b3ff; --gelline:#7a3fd0;
+  --gr1:#ffffff; --gr2:#e3e7f1; --gr3:#aab3c8; --gr4:#f2f4fa; --grline:#8d93b0;
+  --wine:#c2185b; --note1:rgba(255,240,252,.85); --note2:rgba(226,242,255,.85); --noteline:#d39bf0;
+  --holo:linear-gradient(115deg,#ff9ee6,#b99bff,#8be4ff,#b8ffd9,#fff19b,#ff9ee6);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg1:#1a0b33; --bg2:#0d1440; --bg3:#2a0b3d; --bg4:#081a33; --spark:rgba(255,200,255,.75);
+    --ink:#f6eaff; --soft:#c7b6e6;
+    --win:rgba(30,18,60,.78); --winline:#7d5cd6; --title1:#8e95b3; --title2:#3c4260;
+    --gr1:#9aa1bf; --gr2:#5d6483; --gr3:#383e5a; --gr4:#6f7696; --grline:#22263a;
+    --wine:#ff7ac8; --note1:rgba(70,30,100,.7); --note2:rgba(20,50,90,.7); --noteline:#a46ee8;
+  }
+}
+:root[data-theme="dark"]{
+  --bg1:#1a0b33; --bg2:#0d1440; --bg3:#2a0b3d; --bg4:#081a33; --spark:rgba(255,200,255,.75);
+  --ink:#f6eaff; --soft:#c7b6e6;
+  --win:rgba(30,18,60,.78); --winline:#7d5cd6; --title1:#8e95b3; --title2:#3c4260;
+  --gr1:#9aa1bf; --gr2:#5d6483; --gr3:#383e5a; --gr4:#6f7696; --grline:#22263a;
+  --wine:#ff7ac8; --note1:rgba(70,30,100,.7); --note2:rgba(20,50,90,.7); --noteline:#a46ee8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:'Gowun Dodum',system-ui,sans-serif;font-size:16px;line-height:1.75;min-height:100vh;
+  background:
+    radial-gradient(circle at 12% 18%,var(--spark) 0 1.5px,transparent 2.5px) 0 0/140px 140px,
+    radial-gradient(circle at 70% 60%,var(--spark) 0 1px,transparent 2px) 0 0/90px 90px,
+    linear-gradient(135deg,var(--bg1),var(--bg2) 35%,var(--bg3) 70%,var(--bg4));
+  background-attachment:fixed}
+.wrap{max-width:1100px;margin:0 auto;padding:28px 16px 70px}
+::selection{background:#ff7ad9;color:#fff}
+
+/* ---------- Y2K 윈도우 ---------- */
+.window{position:relative;background:var(--win);border:2px solid transparent;border-radius:22px;margin-bottom:40px;overflow:hidden;
+  background:linear-gradient(var(--win),var(--win)) padding-box,var(--holo) border-box;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  box-shadow:0 0 0 1px rgba(255,255,255,.4) inset,0 12px 30px rgba(120,60,200,.25),0 0 24px rgba(255,122,217,.18)}
+.titlebar,section>h2{position:relative;margin:0;min-height:34px;padding:7px 96px 7px 40px;text-align:left;
+  font-family:'Orbitron','Black Han Sans',sans-serif;font-size:14px;font-weight:800;letter-spacing:.5px;color:#1c1730;
+  text-shadow:0 1px 0 rgba(255,255,255,.8);
+  background:linear-gradient(180deg,var(--title1) 0%,#e9ecf5 40%,var(--title2) 52%,#dfe3ee 75%,#ffffff 100%);
+  border-bottom:2px solid var(--winline)}
+.titlebar::before,section>h2::before{content:"✦";position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:17px;
+  background:var(--holo);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 0 2px rgba(155,92,255,.6))}
+.titlebar::after,section>h2::after{content:"_  □  ✕";position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  font-family:'Orbitron',monospace;font-size:11px;letter-spacing:2px;padding:1px 8px;border-radius:8px;color:#fff;text-shadow:0 1px 0 rgba(80,0,120,.5);
+  background:linear-gradient(var(--gel2),var(--gel3));border:1px solid var(--gelline)}
+:root[data-theme="dark"] .titlebar,:root[data-theme="dark"] section>h2{color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.6)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .titlebar,:root:not([data-theme="light"]) section>h2{color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.6)}}
+.winbody{padding:28px 26px}
+
+/* ---------- 히어로 ---------- */
+header.hero .winbody{text-align:center;padding:40px 22px 30px}
+.hero .bottle{display:inline-grid;place-items:center;width:110px;height:110px;font-size:56px;border-radius:50%;margin-bottom:6px;position:relative;
+  background:radial-gradient(circle at 35% 28%,#fff 0 8%,transparent 30%),var(--holo);border:2px solid #fff;
+  box-shadow:0 0 0 4px rgba(155,92,255,.25),0 10px 26px rgba(155,92,255,.45);animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px) rotate(-4deg)}}
+h1{font-family:'Black Han Sans',sans-serif;font-weight:400;font-size:clamp(32px,6.5vw,60px);line-height:1.15;margin:8px 0 4px;
+  background:linear-gradient(180deg,#ffffff 0%,#d9def0 30%,#7d86a8 48%,#3c4466 52%,#c7cde4 70%,#ffffff 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  -webkit-text-stroke:1.5px #6b3fd4;filter:drop-shadow(3px 3px 0 #ff7ad9) drop-shadow(0 0 10px rgba(155,92,255,.45))}
+h1 em{font-style:normal}
+.hero .sub{font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:4px;color:var(--gel3);margin:0 0 10px}
+.hero p{color:var(--soft);margin:8px auto 0;max-width:640px}
+.notice{display:inline-block;margin-top:18px;padding:8px 18px;font-size:14px;color:var(--ink);border-radius:999px;
+  background:linear-gradient(var(--note1),var(--note2));border:1px dashed var(--noteline)}
+.marquee{overflow:hidden;white-space:nowrap;border-top:2px solid var(--winline);padding:6px 0;
+  font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:3px;color:#fff;background:linear-gradient(90deg,var(--gel3),var(--gel2),var(--gel3))}
+.marquee span{display:inline-block;padding-left:100%;animation:mq 22s linear infinite}
+@keyframes mq{to{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){.marquee span,.hero .bottle{animation:none}.marquee span{padding-left:16px}}
+
+/* ---------- 버블 버튼 ---------- */
+.gel,nav.toc a,.chip{position:relative;display:inline-block;overflow:hidden;color:#2a1840;text-decoration:none;
+  border:1px solid var(--grline);border-radius:999px;text-shadow:0 1px 0 rgba(255,255,255,.8);
+  background:linear-gradient(var(--gr1),var(--gr2) 45%,var(--gr3) 55%,var(--gr4));
+  box-shadow:0 3px 0 rgba(90,60,150,.25),inset 0 1px 0 rgba(255,255,255,.9)}
+.gel::after,nav.toc a::after,.chip::after{content:"";position:absolute;left:10%;right:10%;top:1px;height:45%;border-radius:999px;pointer-events:none;
+  background:linear-gradient(rgba(255,255,255,.95),rgba(255,255,255,.05))}
+nav.toc a.on,nav.toc a:hover,.chip,.gel.blue{color:#fff;text-shadow:0 1px 1px rgba(80,0,120,.55);border-color:var(--gelline);
+  background:linear-gradient(135deg,var(--gel2),var(--gel3));box-shadow:0 3px 0 rgba(90,30,160,.4),0 0 12px rgba(255,122,217,.45),inset 0 -2px 4px rgba(255,255,255,.3)}
+:root[data-theme="dark"] nav.toc a:not(.on):not(:hover){color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,.6)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) nav.toc a:not(.on):not(:hover){color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,.6)}}
+
+nav.toc{position:sticky;top:10px;z-index:5;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:12px;margin:0 0 34px;
+  border:2px solid transparent;border-radius:999px;
+  background:linear-gradient(var(--win),var(--win)) padding-box,var(--holo) border-box;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  box-shadow:0 8px 22px rgba(120,60,200,.25)}
+nav.toc a{font-size:14px;font-weight:bold;padding:5px 15px}
+nav.toc a:active{transform:translateY(2px)}
+
+/* ---------- 섹션 ---------- */
+section{padding:0;scroll-margin-top:90px}
+section>h2{font-size:15px}
+section>h2 .num{display:none}
+section>.lead,section>.grid,section>.fact,section>ol.steps,section>.quiz,section>p,section>div:not(.grid):not(.fact):not(.quiz){margin-left:26px;margin-right:26px}
+section>.lead{margin-top:24px}
+section>*:last-child{margin-bottom:28px}
+.lead{font-size:17px;color:var(--soft);margin:6px 0 20px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;margin:20px 0}
+.card{position:relative;border:2px solid var(--winline);border-radius:18px;padding:18px 18px 16px;background:var(--win);
+  box-shadow:5px 5px 0 rgba(155,92,255,.28);transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 rgba(255,122,217,.45)}
+.card::before{content:"✧";position:absolute;right:12px;top:8px;color:var(--gel2);font-size:16px}
+.card .emoji{position:relative;overflow:hidden;font-size:30px;width:58px;height:58px;display:grid;place-items:center;border-radius:50%;margin-bottom:10px;
+  background:radial-gradient(circle at 35% 28%,#fff 0 10%,transparent 32%),var(--holo);border:2px solid #fff;
+  box-shadow:0 4px 12px rgba(155,92,255,.35)}
+.card h3{font-family:'Black Han Sans',sans-serif;font-weight:400;font-size:21px;margin:4px 0 6px;letter-spacing:.3px}
+.card h3 .fr{display:block;font-family:'Orbitron',sans-serif;font-size:11px;letter-spacing:1.5px;color:var(--wine);font-weight:600;text-transform:uppercase}
+.card p{margin:6px 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{font-size:12px;font-weight:bold;padding:2px 11px}
+
+.fact{margin:22px 0;padding:14px 18px;border-radius:16px;border:2px dashed var(--noteline);background:linear-gradient(135deg,var(--note1),var(--note2))}
+.fact b{color:var(--gel3);font-family:'Black Han Sans',sans-serif;font-weight:400;letter-spacing:.5px}
+:root[data-theme="dark"] .fact b{color:var(--gel2)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .fact b{color:var(--gel2)}}
+
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:22px 0;display:grid;gap:12px}
+ol.steps li{counter-increment:s;position:relative;padding:12px 16px 12px 66px;border-radius:16px;border:2px solid var(--winline);background:var(--win);
+  box-shadow:4px 4px 0 rgba(155,92,255,.22)}
+ol.steps li::before{content:"0" counter(s);position:absolute;left:12px;top:50%;transform:translateY(-50%);width:38px;height:38px;
+  display:grid;place-items:center;border-radius:50%;font-family:'Orbitron',sans-serif;font-weight:800;font-size:13px;color:#2a1840;border:1px solid var(--grline);
+  background:radial-gradient(circle at 35% 25%,#fff 0 12%,transparent 35%),linear-gradient(180deg,#fff,#c9cfe0 48%,#7d86a8 52%,#e6e9f3)}
+ol.steps li b{color:var(--gel3)}
+
+.quiz{display:grid;gap:10px;margin-top:20px}
+.quiz details{border:2px solid var(--winline);border-radius:16px;background:var(--win);overflow:hidden;box-shadow:4px 4px 0 rgba(155,92,255,.22)}
+.quiz summary{cursor:pointer;font-weight:bold;padding:10px 16px;list-style:none;background:linear-gradient(90deg,var(--note1),var(--note2))}
+.quiz summary::-webkit-details-marker{display:none}
+.quiz summary::before{content:"★";display:inline-block;margin-right:8px;color:var(--gel2);transition:transform .2s}
+.quiz details[open] summary::before{transform:rotate(144deg)}
+.quiz details p{margin:0;padding:12px 16px;color:var(--wine)}
+
+footer{text-align:center;color:var(--soft);font-size:13px;padding:20px}
+footer .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
+footer .badges span{font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:1px;padding:3px 8px;border:1px solid var(--gelline);background:#fff;color:#2a1840;box-shadow:2px 2px 0 var(--gel2)}
+.theme{position:fixed;right:16px;bottom:16px;width:50px;height:50px;padding:0;border-radius:50%;font-size:20px;cursor:pointer}
+.theme:active{transform:translateY(2px)}
+@media (max-width:600px){
+  .grid{grid-template-columns:1fr}
+  nav.toc{position:static;border-radius:22px}
+  section>.lead,section>.grid,section>.fact,section>ol.steps,section>.quiz,section>p,section>div:not(.grid):not(.fact):not(.quiz){margin-left:16px;margin-right:16px}
+  .titlebar,section>h2{padding-right:86px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero window">
+    <div class="titlebar">FRENCH_WINE_GUIDE.EXE</div>
+    <div class="winbody">
+      <div class="bottle">🍷</div>
+      <p class="sub">✦ WINE ENCYCLOPEDIA 2000 ✦</p>
+      <h1>처음 만나는 <em>프랑스 와인</em></h1>
+      <p>라벨은 어렵고, 지역 이름은 낯설고, 무엇부터 마셔야 할지 모르겠다면. 와인 입문자를 위해 프랑스 와인의 기본을 쉽고 실용적으로 정리했어요.</p>
+      <div class="notice">🥂 와인 숍이나 레스토랑에서 바로 써먹을 수 있는 <b>입문 팁</b>을 곳곳에 담았어요.</div>
+    </div>
+    <div class="marquee" aria-hidden="true"><span>✦ WELCOME TO THE WORLD OF FRENCH WINE ✦ BORDEAUX ✧ BOURGOGNE ✧ CHAMPAGNE ✧ RHÔNE ✧ LOIRE ✧ ALSACE ✧ PROVENCE ✧ LANGUEDOC ✧ BEAUJOLAIS ✦ SANTÉ! ✦</span></div>
+  </header>
+  <nav class="toc">
+    <a href="#intro">🍷 와인이란?</a><a href="#map">🧭 산지 지도</a><a href="#regions1">🗺️ 산지 ①</a><a href="#regions2">🗺️ 산지 ②</a>
+    <a href="#grapes">🍇 포도 품종</a><a href="#types">🏷️ 종류·라벨</a><a href="#fun">🎉 이야기·퀴즈</a>
+  </nav>
+  <section id="intro" class="window">
+    <h2><span class="num">1</span>🍷 와인과 프랑스 와인의 기본</h2>
+<p class="lead">와인은 결국 포도로 만든 술이지만, 같은 포도라도 어디서 자라 어떻게 만들었는지에 따라 맛이 크게 달라져요. 이번 섹션에서는 와인이 만들어지는 과정과, 많은 사람이 와인을 배울 때 프랑스 와인부터 접하는 이유를 정리합니다.</p>
+
+<div class="grid">
+  <article class="card">
+    <div class="emoji">🍇</div>
+    <h3>와인이란? <span class="fr">Le vin</span></h3>
+    <p>와인은 포도즙을 발효(효모가 당분을 알코올과 탄산가스로 바꾸는 과정)시켜 만든 술이에요. 물이나 설탕을 거의 더하지 않고 포도 자체의 당분과 산미, 껍질의 성분만으로 맛이 정해지기 때문에, 포도의 품질과 그해 날씨가 그대로 와인에 담겨요. 알코올 도수는 대개 11~15% 정도입니다.</p>
+    <div class="chips"><span class="chip">레드</span><span class="chip">화이트</span><span class="chip">로제</span><span class="chip">스파클링</span></div>
+  </article>
+
+  <article class="card">
+    <div class="emoji">🌍</div>
+    <h3>프랑스 와인이 기준인 이유 <span class="fr">Terroir</span></h3>
+    <p>프랑스는 서늘한 북부부터 따뜻한 남부까지 기후가 다양해서 여러 스타일의 와인을 만들어요. 여기에 테루아(땅·기후·지형 등 포도밭이 가진 고유한 환경)라는 개념을 중시하고, 수백 년 동안 어느 밭에서 어떤 포도가 잘 자라는지 쌓아 온 경험이 있어요. 카베르네 소비뇽, 메를로, 피노 누아, 샤르도네처럼 지금 전 세계에서 재배하는 대표 품종 상당수도 프랑스에서 이름을 알렸어요.</p>
+    <div class="chips"><span class="chip">기후 다양성</span><span class="chip">테루아</span><span class="chip">오랜 역사</span></div>
+  </article>
+
+  <article class="card">
+    <div class="emoji">📜</div>
+    <h3>원산지 제도 <span class="fr">AOC / AOP</span></h3>
+    <p>프랑스는 1930년대에 AOC(원산지 통제 명칭) 제도를 만들어, 지역마다 쓸 수 있는 품종, 재배 방식, 생산량 등을 법으로 정했어요. 지금은 EU 기준에 맞춰 AOP라고도 표기해요. 이 제도는 이탈리아, 스페인 같은 다른 나라 원산지 제도의 본보기가 되었어요.</p>
+    <div class="chips"><span class="chip">AOC</span><span class="chip">AOP</span><span class="chip">IGP</span><span class="chip">Vin de France</span></div>
+  </article>
+
+  <article class="card">
+    <div class="emoji">🏷️</div>
+    <h3>라벨이 어렵게 느껴지는 이유 <span class="fr">Étiquette</span></h3>
+    <p>칠레나 미국 와인은 보통 라벨에 '카베르네 소비뇽'처럼 품종 이름을 크게 써요. 그런데 프랑스 와인은 '보르도', '부르고뉴', '샤블리'처럼 지역 이름을 앞세우는 경우가 많아서, 어떤 포도로 만들었는지 알려면 지역별 대표 품종을 알고 있어야 해요. 예를 들어 샤블리는 샤르도네로 만든 화이트, 부르고뉴 레드는 주로 피노 누아로 만들어요.</p>
+    <div class="chips"><span class="chip">지역명 표기</span><span class="chip">품종 표기</span><span class="chip">샤블리 = 샤르도네</span></div>
+  </article>
+</div>
+
+<ol class="steps">
+  <li><b>수확</b> 포도가 충분히 익으면 늦여름에서 가을 사이에 따요. 수확 시기에 따라 당도와 산미의 균형이 달라져요.</li>
+  <li><b>파쇄</b> 포도알을 줄기에서 떼어 내고 가볍게 으깨 즙이 나오게 해요. 화이트 와인은 보통 이 단계에서 껍질을 바로 걸러 내요.</li>
+  <li><b>발효</b> 효모가 당분을 알코올로 바꿔요. 레드 와인은 껍질과 함께 발효해서 색과 탄닌(떫은맛을 내는 성분)이 우러나요.</li>
+  <li><b>숙성</b> 스테인리스 탱크나 오크통에서 몇 달에서 몇 년 동안 숙성해요. 오크통을 쓰면 바닐라나 토스트 같은 향이 더해져요.</li>
+  <li><b>병입</b> 맑게 걸러 병에 담아요. 일부 와인은 병 속에서 더 숙성한 뒤 출시돼요.</li>
+</ol>
+
+<div class="fact">💡 <b>입문 팁</b> 프랑스 와인 라벨이 부담스럽다면 처음에는 품종이 적힌 와인으로 취향을 찾은 뒤, 같은 품종의 프랑스 지역으로 넘어가 보세요. 예를 들어 샤르도네가 마음에 들었다면 매장에서 '부르고뉴 블랑'이나 '샤블리'를 찾으면 돼요. 2~4만 원대 부르고뉴 블랑은 흰살생선, 닭고기 요리와 잘 어울리는 무난한 첫 프랑스 화이트예요. 최근에는 프랑스 와인도 라벨에 품종을 함께 적는 경우가 늘고 있어요.</div>
+  </section>
+  <section id="map" class="window">
+    <h2>🧭 한눈에 보는 프랑스 와인 산지 지도</h2>
+    <p class="lead">프랑스 와인 라벨에는 산지 이름이 크게 적혀 있어요. 지도에서 위치를 먼저 익혀 두면 산지마다 와인 스타일이 왜 다른지 이해하기 쉬워요. 북쪽은 서늘해서 상큼한 화이트와 스파클링이, 남쪽은 따뜻해서 진하고 풍성한 레드가 많아요. 마커를 눌러 보세요.</p>
+    <div class="mapwrap">
+      <div class="mapbox">
+        <svg id="frmap" viewBox="0 0 600 590" role="img" aria-label="프랑스 와인 산지 지도"></svg>
+        <div class="maplegend"><span><i class="lg n"></i>서늘한 북부: 화이트·스파클링</span><span><i class="lg s"></i>따뜻한 남부: 진한 레드·로제</span></div>
+      </div>
+      <aside class="mapinfo" id="mapinfo" aria-live="polite"></aside>
+    </div>
+  </section>
+<style>
+.mapwrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:22px;margin:0 26px 28px;align-items:start}
+.mapbox{border:2px solid var(--winline);border-radius:18px;padding:10px;box-shadow:4px 4px 0 rgba(155,92,255,.22);
+  background:radial-gradient(circle,rgba(155,92,255,.18) 1px,transparent 1.5px) 0 0/16px 16px,linear-gradient(135deg,var(--note1),var(--note2))}
+#frmap{display:block;width:100%;height:auto}
+#frmap .land{fill:var(--win);stroke:var(--grline);stroke-width:1.5;filter:drop-shadow(0 3px 4px rgba(0,0,0,.18))}
+#frmap .north{fill:rgba(79,216,255,.14)}
+#frmap .river{fill:none;stroke:#5fa8ef;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.75}
+#frmap .rlabel{font-size:11px;fill:#3b82c8;font-style:italic}
+#frmap .city circle{fill:var(--soft)}
+#frmap .city text{font-size:11px;fill:var(--soft)}
+#frmap .pin{cursor:pointer}
+#frmap .pin .orb{stroke:var(--gelline);stroke-width:1.2}
+#frmap .pin .halo{fill:rgba(31,116,216,.18);opacity:0;transition:opacity .15s}
+#frmap .pin:hover .halo,#frmap .pin.on .halo{opacity:1}
+#frmap .pin text{font-size:14px;font-weight:bold;fill:var(--ink);paint-order:stroke;stroke:var(--win);stroke-width:4px;stroke-linejoin:round}
+#frmap .pin.on text{fill:var(--gel3)}
+#frmap .pin:focus{outline:none}
+#frmap .pin:focus-visible .halo{opacity:1}
+.maplegend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--soft);padding:6px 4px 0}
+.lg{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.lg.n{background:#4fd8ff}.lg.s{background:#ff6fcf}
+.mapinfo{border:2px solid var(--winline);border-radius:18px;overflow:hidden;background:var(--win);box-shadow:4px 4px 0 rgba(255,122,217,.35)}
+.mapinfo h3{font-family:'Black Han Sans',sans-serif;font-weight:400}
+.mapinfo .mi-title{padding:8px 14px;font-weight:bold;font-size:14px;text-align:center;border-bottom:1px solid var(--winline);
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.35) 0 1px,transparent 1px 3px),linear-gradient(var(--title1),var(--title2))}
+.mapinfo .mi-body{padding:16px 18px}
+.mapinfo h3{margin:0 0 2px;font-size:22px}
+.mapinfo .fr{font-family:Georgia,serif;font-style:italic;color:var(--wine);font-size:14px}
+.mapinfo dl{margin:12px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14.5px}
+.mapinfo dt{font-weight:bold;color:var(--soft);white-space:nowrap}
+.mapinfo dd{margin:0}
+.mapinfo .go{margin-top:16px;font-size:13px;font-weight:bold;padding:5px 16px;cursor:pointer}
+@media (max-width:760px){.mapwrap{grid-template-columns:1fr;margin:0 16px 22px}}
+</style>
+<script>
+(function(){
+  var NS='http://www.w3.org/2000/svg';
+  function P(lon,lat){return [((lon+5.2)*40).toFixed(1),((51.2-lat)*58).toFixed(1)]}
+  function path(pts,close){return pts.map(function(p,i){var q=P(p[0],p[1]);return (i?'L':'M')+q[0]+' '+q[1]}).join(' ')+(close?' Z':'')}
+  function el(tag,attrs,parent){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e}
+  var FR=[[2.5,51.1],[4.1,50.3],[4.8,50.0],[5.8,49.5],[6.4,49.45],[8.2,48.97],[7.6,47.6],[7.0,47.5],[6.1,46.3],[6.8,46.0],[7.0,45.3],[6.6,44.9],[7.0,44.2],[7.5,43.8],[6.6,43.15],[5.4,43.2],[4.6,43.4],[3.3,43.2],[3.0,42.5],[1.7,42.5],[0.7,42.8],[-0.7,42.9],[-1.8,43.4],[-1.3,44.6],[-1.2,46.0],[-2.1,46.9],[-2.6,47.3],[-4.5,47.9],[-4.7,48.5],[-3.0,48.8],[-1.6,48.65],[-1.9,49.7],[-1.2,49.4],[0.2,49.5],[1.5,50.2],[1.6,50.9]];
+  var CORSE=[[9.4,43.0],[9.55,42.1],[9.2,41.4],[8.6,41.9],[8.7,42.6]];
+  var RIVERS=[
+    {n:'루아르강',pts:[[-2.2,47.25],[-0.5,47.4],[0.7,47.4],[1.9,47.75],[2.9,47.4],[3.1,46.9],[4.0,45.6]],lab:[-1.9,47.05]},
+    {n:'론강',pts:[[6.1,46.2],[5.3,45.85],[4.85,45.75],[4.8,44.9],[4.7,44.1],[4.65,43.7],[4.8,43.35]],lab:[4.95,44.1]},
+    {n:'지롱드강',pts:[[-1.1,45.6],[-0.7,45.1],[-0.55,44.85],[-0.2,44.6]],lab:[-2.1,45.45]}
+  ];
+  var CITIES=[['파리',2.35,48.85],['리옹',4.85,45.75],['마르세유',5.37,43.3]];
+  var R=[
+    {id:'champagne',ko:'샹파뉴',fr:'Champagne',lon:4.0,lat:49.1,warm:0,sec:'regions1',g:'샤르도네, 피노 누아, 피노 뫼니에',s:'병 속 2차 발효로 만든 섬세한 스파클링(샴페인)',t:'처음엔 생산자 기본 라인인 Brut NV(단맛 거의 없음)로. 부담되면 같은 방식의 크레망.',f:'튀김, 굴, 감자칩'},
+    {id:'alsace',ko:'알자스',fr:'Alsace',lon:7.35,lat:48.2,warm:0,sec:'regions2',g:'리슬링, 게뷔르츠트라미너, 피노 그리',s:'향이 풍부한 화이트, 길쭉한 플루트 병',t:'프랑스에서 드물게 라벨에 품종을 적어서 입문자가 고르기 쉬워요.',f:'슈크루트, 소시지, 매콤한 아시아 요리'},
+    {id:'loire',ko:'루아르',fr:'Vallée de la Loire',lon:0.7,lat:47.4,warm:0,sec:'regions2',g:'소비뇽 블랑, 슈냉 블랑, 믈롱, 카베르네 프랑',s:'산도가 좋고 가볍고 깔끔한 화이트, 가벼운 레드',t:'뮈스카데는 가성비 좋은 해산물 와인. 소비뇽 블랑의 기준점은 상세르.',f:'굴, 회, 염소 치즈'},
+    {id:'bourgogne',ko:'부르고뉴',fr:'Bourgogne',lon:4.75,lat:47.05,warm:0,sec:'regions1',g:'피노 누아(레드), 샤르도네(화이트)',s:'포도밭 개성이 드러나는 섬세한 레드와 화이트',t:'지역 단위 Bourgogne Rouge/Blanc, 마코네 화이트, 샤블리부터.',f:'연어, 닭·오리 요리, 버섯 요리'},
+    {id:'beaujolais',ko:'보졸레',fr:'Beaujolais',lon:4.6,lat:46.1,warm:0,sec:'regions2',g:'가메',s:'가볍고 과일 향 가득한 레드',t:'살짝 차갑게 마시면 좋아요. 한 단계 위는 모르공·플뢰리 같은 크뤼 보졸레.',f:'샤퀴테리, 치킨, 피자'},
+    {id:'rhone',ko:'론',fr:'Vallée du Rhône',lon:4.85,lat:44.6,warm:1,sec:'regions1',g:'시라(북부), 그르나슈(남부)',s:'후추 향 진한 레드부터 풍성하고 따뜻한 레드까지',t:'입문용으로는 Côtes du Rhône. 한 단계 위는 샤토뇌프 뒤 파프.',f:'바비큐, 삼겹살, 스튜'},
+    {id:'bordeaux',ko:'보르도',fr:'Bordeaux',lon:-0.58,lat:44.84,warm:1,sec:'regions1',g:'카베르네 소비뇽, 메를로 (블렌딩)',s:'탄닌과 구조감이 있는 레드, 디저트 와인 소테른',t:'메를로 위주 오른쪽 강변 와인이나 Bordeaux Supérieur가 부드러워요.',f:'스테이크, 양갈비, 불고기'},
+    {id:'languedoc',ko:'랑그독-루시용',fr:'Languedoc-Roussillon',lon:3.0,lat:43.35,warm:1,sec:'regions2',g:'그르나슈, 시라, 카리냥, 무르베드르',s:'햇볕을 듬뿍 받은 진하고 넉넉한 레드',t:'프랑스 최대 생산지라 가성비 좋은 와인이 많아요.',f:'구운 고기, 카술레, 라자냐'},
+    {id:'provence',ko:'프로방스',fr:'Provence',lon:6.1,lat:43.5,warm:1,sec:'regions2',g:'그르나슈, 생소, 시라',s:'연한 분홍빛의 드라이 로제',t:'색이 연할수록 상큼한 편. 여름 낮술에 실패가 적어요.',f:'샐러드, 해산물, 지중해 요리'}
+  ];
+  var svg=document.getElementById('frmap'),info=document.getElementById('mapinfo');
+  el('path',{d:path(FR,1),class:'land'},svg);
+  el('path',{d:path(CORSE,1),class:'land'},svg);
+  var cut=P(0,46.5)[1];
+  var clip=el('clipPath',{id:'frclip'},el('defs',{},svg));el('path',{d:path(FR,1)},clip);
+  el('rect',{x:0,y:0,width:600,height:cut,class:'north','clip-path':'url(#frclip)'},svg);
+  RIVERS.forEach(function(r){el('path',{d:path(r.pts),class:'river'},svg);var q=P(r.lab[0],r.lab[1]);var t=el('text',{x:q[0],y:q[1],class:'rlabel'},svg);t.textContent=r.n});
+  CITIES.forEach(function(c){var q=P(c[1],c[2]);var g=el('g',{class:'city'},svg);el('circle',{cx:q[0],cy:q[1],r:3},g);var L=c[0]==='리옹';var t=el('text',{x:L?+q[0]-6:+q[0]+6,y:+q[1]+4,'text-anchor':L?'end':'start'},g);t.textContent=c[0]});
+  var defs=svg.querySelector('defs');
+  [['gN','#e6fbff','#4fd8ff','#2a6fe0'],['gS','#ffe3f6','#ff6fcf','#a02bd6']].forEach(function(c){
+    var rg=el('radialGradient',{id:c[0],cx:'50%',cy:'35%',r:'65%'},defs);
+    el('stop',{offset:'0%','stop-color':c[1]},rg);el('stop',{offset:'55%','stop-color':c[2]},rg);el('stop',{offset:'100%','stop-color':c[3]},rg)});
+  var pins={};
+  R.forEach(function(r){
+    var q=P(r.lon,r.lat),x=+q[0],y=+q[1];
+    var g=el('g',{class:'pin',tabindex:0,role:'button','aria-label':r.ko},svg);
+    el('circle',{cx:x,cy:y,r:17,class:'halo'},g);
+    el('circle',{cx:x,cy:y,r:9.5,class:'orb',fill:'url(#'+(r.warm?'gS':'gN')+')'},g);
+    el('ellipse',{cx:x,cy:y-3.6,rx:5.6,ry:3.4,fill:'rgba(255,255,255,.85)'},g);
+    var left=r.id==='bordeaux'||r.id==='loire';
+    var t=el('text',{x:left?x-14:x+14,y:y+5,'text-anchor':left?'end':'start'},g);t.textContent=r.ko;
+    g.addEventListener('click',function(){show(r)});
+    g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();show(r)}});
+    pins[r.id]=g;
+  });
+  function show(r){
+    for(var k in pins)pins[k].classList.toggle('on',k===r.id);
+    info.innerHTML='<div class="mi-title">'+(r.warm?'☀️ 따뜻한 남부':'❄️ 서늘한 북부')+'</div><div class="mi-body"><h3>'+r.ko+'</h3><div class="fr">'+r.fr+'</div>'+
+      '<dl><dt>주요 품종</dt><dd>'+r.g+'</dd><dt>스타일</dt><dd>'+r.s+'</dd><dt>입문 추천</dt><dd>'+r.t+'</dd><dt>어울리는 음식</dt><dd>'+r.f+'</dd></dl>'+
+      '<button class="gel blue go" type="button">자세히 보기 →</button></div>';
+    info.querySelector('.go').onclick=function(){document.getElementById(r.sec).scrollIntoView({behavior:'smooth'})};
+  }
+  show(R[6]);
+})();
+</script>
+  <section id="regions1" class="window">
+    <h2><span class="num">2</span>🗺️ 주요 산지 ①</h2>
+<p class="lead">프랑스 와인 라벨에는 품종보다 산지 이름이 크게 적혀 있는 경우가 많아요. 그래서 주요 산지 네 곳의 성격만 알아 두어도 매장이나 레스토랑 와인 리스트에서 훨씬 수월하게 고를 수 있습니다.</p>
+<div class="grid">
+<article class="card">
+<div class="emoji">🏰</div>
+<h3>보르도 <span class="fr">Bordeaux</span></h3>
+<p>프랑스 남서부 대서양 쪽, 지롱드강 하구에 있는 세계적인 레드 와인 산지예요. 카베르네 소비뇽과 메를로를 주로 섞어(블렌딩) 만들고, 구조감 있고 탄닌(떫은맛을 내는 성분)이 느껴지는 레드가 대표적입니다. 강 왼쪽(메도크, 그라브 등)은 카베르네 소비뇽 위주라 단단하고, 오른쪽(생테밀리옹, 포므롤)은 메를로 위주라 더 부드러워요.</p>
+<p>처음이라면 메를로 비중이 높은 오른쪽 강변 와인이나 '보르도 쉬페리외르(Bordeaux Supérieur)'를 추천해요. 2~4만 원대에서도 괜찮은 병을 찾을 수 있고, 스테이크나 양갈비, 불고기처럼 고기 요리와 잘 어울립니다. 소비뇽 블랑과 세미용으로 만드는 화이트, 디저트 와인 소테른도 있어요.</p>
+<div class="chips"><span class="chip">카베르네 소비뇽</span><span class="chip">메를로</span><span class="chip">블렌딩</span><span class="chip">샤토</span><span class="chip">고기 요리</span></div>
+</article>
+<article class="card">
+<div class="emoji">🍷</div>
+<h3>부르고뉴 <span class="fr">Bourgogne</span></h3>
+<p>프랑스 동부 내륙 지역으로, 영어로는 버건디(Burgundy)라고 불러요. 레드는 피노 누아, 화이트는 샤르도네 한 품종으로 만드는 게 원칙이라 포도밭의 개성이 맛에 그대로 드러나는 곳으로 유명합니다. 레드는 색이 연하고 산뜻하며 붉은 과일 향이 나고, 화이트는 산미와 고소한 풍미가 균형을 이룹니다.</p>
+<p>처음에는 지역 단위 등급인 '부르고뉴 루주/블랑'이나 남쪽의 마코네(Mâconnais) 화이트로 시작해 보세요. 비교적 합리적인 가격에 스타일을 익힐 수 있어요. 산뜻한 화이트를 원하면 샤블리(Chablis)도 좋은 선택입니다. 피노 누아는 연어나 닭·오리 요리, 버섯 요리와 잘 맞아요.</p>
+<div class="chips"><span class="chip">피노 누아</span><span class="chip">샤르도네</span><span class="chip">샤블리</span><span class="chip">테루아</span><span class="chip">섬세함</span></div>
+</article>
+<article class="card">
+<div class="emoji">🥂</div>
+<h3>샹파뉴 <span class="fr">Champagne</span></h3>
+<p>파리 북동쪽, 프랑스에서 가장 북쪽에 있는 주요 산지예요. 이 지역에서 정해진 방식(병 안에서 2차 발효를 시키는 전통 방식)으로 만든 스파클링 와인만 '샴페인'이라고 부를 수 있습니다. 주로 샤르도네, 피노 누아, 피노 뫼니에를 섞어 만들며, 섬세한 기포와 빵·견과류 같은 고소한 풍미가 특징이에요.</p>
+<p>처음에는 각 생산자의 기본 라인인 '브뤼 논 빈티지(Brut NV)'를 골라 보세요. 브뤼는 단맛이 거의 없는 스타일이라는 뜻입니다. 가격이 부담된다면 같은 방식으로 만든 프랑스 다른 지역의 '크레망(Crémant)'이 좋은 대안이에요. 튀김, 굴, 감자칩과도 의외로 잘 어울립니다.</p>
+<div class="chips"><span class="chip">스파클링</span><span class="chip">전통 방식</span><span class="chip">브뤼</span><span class="chip">피노 뫼니에</span><span class="chip">크레망</span></div>
+</article>
+<article class="card">
+<div class="emoji">☀️</div>
+<h3>론 계곡 <span class="fr">Vallée du Rhône</span></h3>
+<p>리옹 남쪽에서 지중해 쪽으로 론강을 따라 이어지는 산지예요. 북부 론은 시라 한 품종 위주로 후추 향이 나는 진한 레드를 만들고, 남부 론은 그르나슈를 중심으로 시라, 무르베드르 등을 섞어 풍성하고 따뜻한 느낌의 레드를 만듭니다. 남부의 대표 산지로는 샤토뇌프 뒤 파프가 유명해요.</p>
+<p>입문용으로는 '코트 뒤 론(Côtes du Rhône)'을 추천합니다. 1~3만 원대에서 쉽게 찾을 수 있고, 과일 맛이 풍부해 부담 없이 마시기 좋아요. 바비큐, 삼겹살, 스튜처럼 양념이 있는 고기 요리와 잘 어울립니다.</p>
+<div class="chips"><span class="chip">시라</span><span class="chip">그르나슈</span><span class="chip">코트 뒤 론</span><span class="chip">샤토뇌프 뒤 파프</span><span class="chip">가성비</span></div>
+</article>
+</div>
+<div class="fact">💡 <b>입문 팁</b> 프랑스 와인 라벨은 보통 '넓은 지역 → 마을 → 개별 포도밭' 순서로 범위가 좁아질수록 등급과 가격이 올라가요. 처음에는 지역 이름만 적힌 와인(예: Bourgogne, Côtes du Rhône)으로 각 산지의 기본 맛을 익히고, 마음에 드는 산지를 찾으면 그 안의 마을 단위 와인으로 넓혀 가는 방법을 추천합니다.</div>
+  </section>
+  <section id="regions2" class="window">
+    <h2><span class="num">3</span>🗺️ 주요 산지 ②</h2>
+<p class="lead">보르도·부르고뉴만큼 이름값이 높지는 않아도, 맛있고 가격 부담이 적은 와인이 많이 나오는 산지들이에요. 와인을 막 알아가는 단계라면 이 다섯 곳에서 "실패 없는 한 병"을 찾기가 훨씬 쉽습니다.</p>
+
+<div class="grid">
+  <article class="card">
+    <div class="emoji">🏰</div>
+    <h3>루아르 계곡 <span class="fr">Vallée de la Loire</span></h3>
+    <p>프랑스에서 가장 긴 강인 루아르강을 따라 대서양 쪽 낭트부터 내륙 상세르까지 길게 이어진 산지예요. 화이트는 소비뇽 블랑(상세르, 푸이퓌메), 슈냉 블랑(부브레), 믈롱 드 부르고뉴(뮈스카데)가 대표 품종이고, 레드는 카베르네 프랑(시농, 소뮈르)이 유명합니다. 전체적으로 산도(입에 침이 고이게 하는 상큼한 신맛)가 좋고 가볍고 깔끔한 스타일이에요.</p>
+    <p>입문 추천은 뮈스카데예요. 보통 1만~2만 원대로 굴, 회, 해산물과 아주 잘 어울립니다. 조금 더 투자한다면 상세르가 소비뇽 블랑의 기준점 같은 와인이에요.</p>
+    <div class="chips"><span class="chip">소비뇽 블랑</span><span class="chip">슈냉 블랑</span><span class="chip">카베르네 프랑</span><span class="chip">상큼한 화이트</span><span class="chip">해산물</span></div>
+  </article>
+
+  <article class="card">
+    <div class="emoji">🍺</div>
+    <h3>알자스 <span class="fr">Alsace</span></h3>
+    <p>독일과 맞닿은 프랑스 북동부 지역으로, 보주산맥이 비를 막아줘서 프랑스에서 가장 건조한 산지 중 하나예요. 리슬링, 게뷔르츠트라미너, 피노 그리, 뮈스카가 주요 품종이고 생산량의 대부분이 화이트입니다. 프랑스 와인으로는 드물게 라벨에 품종 이름을 크게 적어서 고르기가 쉬워요.</p>
+    <p>길쭉한 병 모양(플뤼트)이 특징이라 매장에서도 금방 눈에 띕니다. 드라이한 것부터 꽤 단 것까지 있으니, 단맛이 걱정되면 직원에게 "sec(드라이)"인지 물어보세요. 게뷔르츠트라미너의 리치·장미 향은 향신료가 들어간 아시아 음식과 잘 맞아요.</p>
+    <div class="chips"><span class="chip">리슬링</span><span class="chip">게뷔르츠트라미너</span><span class="chip">품종 표기 라벨</span><span class="chip">향긋한 화이트</span><span class="chip">아시아 음식</span></div>
+  </article>
+
+  <article class="card">
+    <div class="emoji">🌸</div>
+    <h3>프로방스 <span class="fr">Provence</span></h3>
+    <p>지중해에 접한 프랑스 남동부로, 생산량의 약 90%가 로제 와인일 만큼 로제의 대표 산지예요. 그르나슈, 생소, 시라, 무르베드르 등을 섞어 만들며, 연한 연어빛에 드라이하고 산뜻한 스타일이 특징입니다.</p>
+    <p>로제는 "달다"는 오해가 있지만 프로방스 로제는 대부분 드라이해요. 2만~4만 원대에 좋은 선택지가 많고, 차갑게 해서 샐러드, 해산물, 가벼운 한식 반찬과 곁들이기 좋습니다. 여름 피크닉 와인으로 가장 무난한 선택이에요.</p>
+    <div class="chips"><span class="chip">로제</span><span class="chip">그르나슈</span><span class="chip">생소</span><span class="chip">드라이</span><span class="chip">여름 와인</span></div>
+  </article>
+
+  <article class="card">
+    <div class="emoji">☀️</div>
+    <h3>랑그독-루시용 <span class="fr">Languedoc-Roussillon</span></h3>
+    <p>스페인 국경까지 이어지는 지중해 연안의 넓은 산지로, 프랑스 포도밭 면적에서 가장 큰 비중을 차지해요. 햇볕이 풍부해서 그르나슈, 시라, 카리냥, 무르베드르로 만든 과일 맛이 진하고 부드러운 레드가 많습니다. 리무(Limoux)의 스파클링도 숨은 보석이에요.</p>
+    <p>프랑스 와인 중 가성비가 가장 좋은 지역으로 꼽혀요. 1만~2만 원대의 "Pays d'Oc(페이 독)" 표기 와인은 라벨에 품종이 적혀 있어 고르기 쉽고, 삼겹살이나 바비큐와도 잘 어울립니다.</p>
+    <div class="chips"><span class="chip">가성비</span><span class="chip">시라</span><span class="chip">그르나슈</span><span class="chip">Pays d'Oc</span><span class="chip">진한 레드</span></div>
+  </article>
+
+  <article class="card">
+    <div class="emoji">🍇</div>
+    <h3>보졸레 <span class="fr">Beaujolais</span></h3>
+    <p>행정상 부르고뉴 남쪽 끝, 리옹 북쪽에 있는 산지로 거의 모든 와인을 가메(Gamay) 품종으로 만들어요. 탄닌(떫은맛을 내는 성분)이 적고 딸기·체리 같은 과일 향이 풍부해서, 떫은 레드가 부담스러운 분께 딱 맞는 첫 레드 와인입니다.</p>
+    <p>등급은 보졸레 → 보졸레 빌라주 → 크뤼 보졸레 순이에요. 모르공, 플뢰리 같은 마을 이름이 적힌 크뤼 보졸레는 3만 원 안팎에서 훨씬 깊은 맛을 보여줍니다. 살짝 차갑게(14도 전후) 마시면 더 맛있고, 치킨이나 햄·치즈 플래터와 잘 어울려요.</p>
+    <div class="chips"><span class="chip">가메</span><span class="chip">가벼운 레드</span><span class="chip">탄닌 적음</span><span class="chip">크뤼 보졸레</span><span class="chip">살짝 차갑게</span></div>
+  </article>
+</div>
+
+<div class="fact">💡 <b>입문 팁</b> 보졸레 누보(Beaujolais Nouveau)는 그해 수확한 가메로 몇 주 만에 만든 햇와인이에요. 매년 11월 셋째 목요일에 전 세계에서 동시에 출시됩니다. 오래 두지 않고 신선할 때 마시는 와인이라 보관하지 말고 연말까지 즐기세요. 누보가 마음에 들었다면 다음엔 크뤼 보졸레를 마셔 보세요. 같은 품종이 얼마나 깊어질 수 있는지 비교해 보는 재미가 있어요.</div>
+  </section>
+  <section id="grapes" class="window">
+    <h2><span class="num">4</span>🍇 꼭 알아야 할 포도 품종</h2>
+<p class="lead">와인 라벨이 어렵게 느껴지는 이유 중 하나는 포도 품종 이름이 낯설기 때문이에요. 아래 8가지만 알아 두면 와인 매장이나 레스토랑 와인 리스트의 상당 부분이 한결 읽기 쉬워집니다.</p>
+<div class="grid">
+<article class="card"><div class="emoji">🍷</div><h3>카베르네 소비뇽 <span class="fr">Cabernet Sauvignon</span></h3><p>진한 보랏빛 레드 와인으로, 블랙커런트(검은 까치밥나무 열매)와 삼나무, 피망 같은 향이 납니다. 바디감(입안에서 느껴지는 무게감)이 묵직하고, 탄닌(입안을 떫게 조이는 성분)이 강한 편이에요. 프랑스에서는 보르도 지역, 특히 <b>메도크(Médoc)</b>·<b>포이야크(Pauillac)</b>처럼 지롱드강 왼쪽 기슭 마을 이름이 적힌 라벨에서 주인공 역할을 합니다. 스테이크나 양갈비처럼 기름진 고기와 잘 어울려요.</p><div class="chips"><span class="chip">풀바디</span><span class="chip">탄닌 강함</span><span class="chip">블랙커런트</span><span class="chip">스테이크</span></div></article>
+<article class="card"><div class="emoji">🍇</div><h3>메를로 <span class="fr">Merlot</span></h3><p>자두와 블랙체리 같은 잘 익은 과일 향이 나고, 카베르네 소비뇽보다 탄닌이 부드러워 처음 레드 와인을 마시는 분께 편한 품종이에요. 바디감은 중간에서 묵직한 정도입니다. 보르도 강 오른쪽 기슭의 <b>생테밀리옹(Saint-Émilion)</b>·<b>포므롤(Pomerol)</b>에서 주로 쓰입니다. 불고기, 햄버거, 토마토소스 파스타처럼 일상적인 음식과 두루 잘 맞아요.</p><div class="chips"><span class="chip">부드러운 탄닌</span><span class="chip">자두</span><span class="chip">입문용</span><span class="chip">불고기</span></div></article>
+<article class="card"><div class="emoji">🍒</div><h3>피노 누아 <span class="fr">Pinot Noir</span></h3><p>빛이 비칠 만큼 맑은 루비색 레드 와인으로, 체리·딸기 향에 숙성되면 버섯·흙 내음이 더해집니다. 바디감은 가볍고 산도(침이 고이는 상큼함)가 높으며 탄닌은 순해요. 프랑스 <b>부르고뉴(Bourgogne)</b>가 본고장이고, 라벨에 품종 대신 지역명만 적혀 있는 경우가 많습니다. 연어, 오리고기, 버섯 요리와 특히 잘 어울려요. 재배가 까다로워 같은 급이라도 가격이 높은 편입니다.</p><div class="chips"><span class="chip">라이트바디</span><span class="chip">산도 높음</span><span class="chip">체리</span><span class="chip">연어·오리</span></div></article>
+<article class="card"><div class="emoji">🌶️</div><h3>시라 <span class="fr">Syrah</span></h3><p>짙은 색에 블랙베리, 후추, 훈제 고기 같은 향이 특징인 레드 와인이에요. 바디감이 묵직하고 탄닌도 꽤 있는 편입니다. 프랑스 <b>론(Rhône)</b> 북부의 <b>에르미타주(Hermitage)</b>·<b>코트 로티(Côte-Rôtie)</b>가 대표 산지이고, 호주에서는 '쉬라즈(Shiraz)'라는 이름으로 불려요. 바비큐, 양념 갈비, 향신료를 쓴 고기 요리와 잘 맞습니다.</p><div class="chips"><span class="chip">풀바디</span><span class="chip">후추 향</span><span class="chip">쉬라즈</span><span class="chip">바비큐</span></div></article>
+<article class="card"><div class="emoji">🍓</div><h3>가메 <span class="fr">Gamay</span></h3><p>밝은 보랏빛에 딸기·라즈베리 같은 생기 있는 과일 향이 나는 가벼운 레드 와인입니다. 탄닌이 적고 산도가 상큼해서 살짝 차갑게(14℃ 안팎) 마셔도 맛있어요. <b>보졸레(Beaujolais)</b>가 대표 산지이며, 매년 11월 셋째 목요일에 출시되는 '보졸레 누보'도 이 품종으로 만듭니다. 샤퀴테리(햄·소시지 모둠), 치킨, 피자처럼 가벼운 안주와 잘 어울리고 가격도 부담 없는 편이에요.</p><div class="chips"><span class="chip">라이트바디</span><span class="chip">탄닌 적음</span><span class="chip">보졸레</span><span class="chip">살짝 차갑게</span></div></article>
+<article class="card"><div class="emoji">🥂</div><h3>샤르도네 <span class="fr">Chardonnay</span></h3><p>세계에서 가장 널리 쓰이는 화이트 품종으로, 만드는 방식에 따라 맛이 크게 달라져요. 스테인리스 탱크에서 만들면 사과·레몬 향의 깔끔한 맛이, 오크통(참나무통)에서 숙성하면 버터·바닐라 향의 부드럽고 묵직한 맛이 납니다. 부르고뉴의 <b>샤블리(Chablis)</b>·<b>뫼르소(Meursault)</b>, 그리고 <b>샹파뉴(Champagne)</b>에서도 핵심 품종이에요. 해산물, 크림 파스타, 닭 요리와 잘 맞습니다.</p><div class="chips"><span class="chip">화이트</span><span class="chip">사과·버터</span><span class="chip">샤블리</span><span class="chip">크림 파스타</span></div></article>
+<article class="card"><div class="emoji">🌿</div><h3>소비뇽 블랑 <span class="fr">Sauvignon Blanc</span></h3><p>연한 볏짚색 화이트 와인으로, 자몽·라임에 갓 벤 풀이나 허브 같은 향이 선명합니다. 산도가 높아 상큼하고 가벼운 바디감이 특징이에요. 프랑스 루아르 지역의 <b>상세르(Sancerre)</b>·<b>푸이 퓌메(Pouilly-Fumé)</b>가 대표 산지이고, 보르도 화이트에도 쓰입니다. 굴·회 같은 해산물, 샐러드, 염소젖 치즈와 잘 어울려요. 뉴질랜드산은 향이 더 화사하고 가격도 합리적이라 입문용으로 좋습니다.</p><div class="chips"><span class="chip">산도 높음</span><span class="chip">허브·자몽</span><span class="chip">상세르</span><span class="chip">해산물</span></div></article>
+<article class="card"><div class="emoji">🍑</div><h3>리슬링 <span class="fr">Riesling</span></h3><p>라임, 청사과, 복숭아 향에 꽃 향기가 어우러지는 화이트 와인으로, 높은 산도 덕분에 맛이 또렷합니다. 드라이(달지 않은)부터 꽤 달콤한 것까지 스타일이 다양해요. 프랑스에서는 <b>알자스(Alsace)</b>가 대표 산지이며 대체로 드라이하게 만들고, 독일산은 단맛이 있는 경우가 많습니다. 살짝 단 리슬링은 매콤한 아시아 음식, 떡볶이나 태국 요리와도 의외로 잘 어울려요.</p><div class="chips"><span class="chip">산도 높음</span><span class="chip">드라이~스위트</span><span class="chip">알자스</span><span class="chip">매운 음식</span></div></article>
+</div>
+<div class="fact">💡 <b>입문 팁</b> 프랑스 와인은 라벨에 품종 대신 산지 이름을 적는 경우가 많아요. '부르고뉴 레드'라면 피노 누아, '샤블리'라면 샤르도네, '상세르'라면 소비뇽 블랑일 가능성이 높습니다. 반대로 알자스는 예외적으로 품종명을 라벨에 적는 지역이에요. 처음이라면 칠레·호주·뉴질랜드처럼 품종명을 크게 적는 신대륙 와인(1~3만 원대)으로 취향을 먼저 찾아본 뒤, 마음에 든 품종의 프랑스 산지로 넘어가 보세요.</div>
+  </section>
+  <section id="types" class="window">
+    <h2><span class="num">5</span>🏷️ 와인 종류와 라벨 읽는 법</h2>
+<p class="lead">와인 매장에 가면 수백 병이 늘어서 있어 막막하지만, 큰 줄기는 다섯 가지 스타일로 정리됩니다. 각 스타일의 차이를 알고 라벨 읽는 법만 익혀 두면 고르기가 훨씬 쉬워져요.</p>
+<div class="grid">
+<article class="card"><div class="emoji">🍷</div><h3>레드 와인 <span class="fr">Vin rouge</span></h3><p>적포도를 껍질째 발효해서 껍질의 색소와 탄닌(떫은맛을 내는 성분)이 와인에 우러나옵니다. 그래서 색이 진하고 입안이 조이는 듯한 질감이 있어요. 스테이크, 불고기, 숙성 치즈처럼 기름지고 진한 음식과 잘 어울립니다. 처음이라면 탄닌이 부드러운 피노 누아나 보졸레(가메 품종)부터 시작해 보세요.</p><div class="chips"><span class="chip">보르도</span><span class="chip">부르고뉴</span><span class="chip">탄닌</span></div></article>
+<article class="card"><div class="emoji">🥂</div><h3>화이트 와인 <span class="fr">Vin blanc</span></h3><p>주로 청포도를 압착해 즙만 발효하기 때문에 색이 옅고 탄닌이 거의 없어요. 산도(신맛)가 살아 있어 상큼하고, 해산물·회·샐러드와 잘 맞습니다. 상큼한 스타일을 원하면 소비뇽 블랑, 부드럽고 풍성한 스타일을 원하면 샤르도네를 고르면 됩니다.</p><div class="chips"><span class="chip">샤블리</span><span class="chip">상세르</span><span class="chip">산도</span></div></article>
+<article class="card"><div class="emoji">🌸</div><h3>로제 와인 <span class="fr">Vin rosé</span></h3><p>적포도를 쓰되 껍질과 즙을 몇 시간에서 하루 이틀 정도만 접촉시킨 뒤 분리해서 연한 분홍빛을 냅니다. 레드와 화이트를 섞어 만드는 방식은 프랑스에서 샴페인을 제외하고는 원칙적으로 허용되지 않아요. 프로방스 로제는 드라이(달지 않음)하고 가벼워서 여름철, 가벼운 한식, 피크닉에 잘 어울립니다.</p><div class="chips"><span class="chip">프로방스</span><span class="chip">드라이</span><span class="chip">짧은 침용</span></div></article>
+<article class="card"><div class="emoji">🍾</div><h3>스파클링: 샴페인·크레망 <span class="fr">Champagne · Crémant</span></h3><p>병 안에서 2차 발효를 시켜 탄산을 만드는 전통 방식으로 생산합니다. '샴페인'은 샹파뉴 지역에서 만든 것만 쓸 수 있는 이름이고, 같은 방식으로 다른 지역에서 만든 것이 '크레망'이에요. 크레망 드 부르고뉴나 크레망 달자스는 샴페인의 절반 이하 가격(대략 2~4만 원대)으로 비슷한 즐거움을 줍니다. 라벨의 'Brut(브뤼)'는 달지 않다는 뜻이에요.</p><div class="chips"><span class="chip">병내 2차 발효</span><span class="chip">Brut</span><span class="chip">가성비</span></div></article>
+<article class="card"><div class="emoji">🍯</div><h3>스위트 와인: 소테른 <span class="fr">Sauternes</span></h3><p>보르도 소테른 지역에서는 귀부병(보트리티스라는 곰팡이가 포도의 수분을 빼 당분을 농축시키는 현상)에 걸린 세미용·소비뇽 블랑으로 진한 단맛의 와인을 만듭니다. 황금빛이고 꿀, 살구 같은 향이 나요. 디저트나 푸아그라, 블루치즈와 함께 소량씩 즐기며, 보통 375ml 하프 보틀로도 판매됩니다.</p><div class="chips"><span class="chip">귀부병</span><span class="chip">디저트 와인</span><span class="chip">하프 보틀</span></div></article>
+</div>
+<p class="lead">프랑스 와인은 라벨에 포도 품종 대신 '생산지'를 크게 적는 경우가 많아요. 아래 순서대로 보면 라벨이 어렵지 않습니다.</p>
+<ol class="steps">
+<li><b>생산지명 확인</b> 라벨에서 가장 크게 적힌 지명(예: Bordeaux, Chablis, Côtes du Rhône)이 와인의 정체입니다. 지역마다 쓰는 품종이 정해져 있어서, 샤블리라면 샤르도네 화이트라는 걸 알 수 있어요.</li>
+<li><b>등급 표시 보기</b> 'Appellation d'Origine Contrôlée(AOC)' 또는 유럽 통합 표기인 AOP는 정해진 지역·품종·생산 규정을 지킨 와인이라는 뜻입니다. 그 아래로 IGP(Vin de Pays, 규정이 더 느슨하고 품종 표기가 흔함), Vin de France 등급이 있어요. 입문자에게는 품종이 적힌 IGP 와인도 가성비 좋은 선택입니다.</li>
+<li><b>생산자 확인</b> 보르도에서는 'Château(샤토)', 부르고뉴에서는 'Domaine(도멘)'이 주로 와이너리를 가리킵니다. 같은 지역 와인이라도 생산자에 따라 품질 차이가 크니, 마음에 든 와인은 생산자 이름을 기억해 두세요.</li>
+<li><b>빈티지 확인</b> 라벨의 연도는 포도를 수확한 해입니다. 일상용 화이트·로제는 최근 2~3년 이내 빈티지가 신선하고, 좋은 레드는 몇 년 숙성된 것이 더 부드러울 수 있어요.</li>
+<li><b>Grand Cru·Premier Cru 표시</b> 부르고뉴에서는 Grand Cru(그랑 크뤼)가 최상위 밭, Premier Cru(프르미에 크뤼)가 그다음 등급입니다. 반면 보르도의 'Grand Cru Classé'는 1855년 등에 정해진 샤토(생산자) 등급이라 의미가 다르고, 단순히 'Grand Cru'만 적힌 생테밀리옹 와인은 규정이 덜 엄격해요. 가격이 크게 뛰는 표시이니 입문 단계에선 굳이 쫓지 않아도 됩니다.</li>
+</ol>
+<div class="fact">💡 <b>입문 팁</b> 와인은 온도만 맞춰도 맛이 확 좋아집니다. 스파클링·스위트는 6~8℃, 화이트·로제는 8~12℃, 레드는 14~18℃가 적당해요. 레드를 '실온'에 두면 한국 실내에서는 너무 따뜻하니, 마시기 15~20분 전에 냉장고에 넣었다 꺼내 보세요. 매장에서는 "2~3만 원대에 ○○ 음식과 어울리는 걸 추천해 주세요"처럼 예산과 음식을 함께 말하면 가장 빠르게 좋은 와인을 찾을 수 있습니다.</div>
+  </section>
+  <section id="fun" class="window">
+    <h2><span class="num">6</span>🎉 알아두면 즐거운 이야기 & 퀴즈</h2>
+<p class="lead">와인 한 잔을 앞에 두고 꺼내기 좋은 이야기들을 모았어요. 역사와 상식을 조금 알고 나면 같은 와인도 훨씬 재미있게 마실 수 있습니다.</p>
+
+<div class="grid">
+  <article class="card">
+    <div class="emoji">🏛️</div>
+    <h3>로마에서 수도원까지 <span class="fr">Les Romains et les moines</span></h3>
+    <p>프랑스 땅에 포도 재배가 본격적으로 퍼진 것은 기원전 600년경 그리스인이 마르세유에 정착한 뒤, 로마 제국이 갈리아를 지배하면서부터예요. 중세에는 수도원이 와인 생산을 이끌었어요. 미사에 와인이 필요했던 데다 수도사들이 오랜 세월 밭을 기록하고 관리했기 때문이에요. 특히 부르고뉴의 시토회 수도사들은 땅에 따라 맛이 달라진다는 사실을 꼼꼼히 관찰했고, 그 결과가 오늘날의 밭 구획에 남아 있어요.</p>
+    <div class="chips"><span class="chip">로마 제국</span><span class="chip">시토회</span><span class="chip">부르고뉴</span></div>
+  </article>
+
+  <article class="card">
+    <div class="emoji">🍾</div>
+    <h3>동 페리뇽 전설의 진실 <span class="fr">Dom Pérignon</span></h3>
+    <p>"샴페인을 발명한 수도사"로 알려진 동 페리뇽(1638~1715)은 사실 거품을 만든 사람이 아니에요. 당시에는 병 속 거품이 병을 깨뜨리는 골칫거리였고, 그는 오히려 거품을 줄이고 블렌딩(여러 포도를 섞는 기술)과 품질을 높이는 데 힘썼어요. "별을 마시고 있어요!"라는 유명한 말도 19세기에 만들어진 홍보 문구라고 봅니다. 기포를 일부러 만드는 방법은 영국인 크리스토퍼 메렛이 1662년에 먼저 기록으로 남겼어요.</p>
+    <div class="chips"><span class="chip">샴페인</span><span class="chip">블렌딩</span><span class="chip">전설</span></div>
+  </article>
+
+  <article class="card">
+    <div class="emoji">🐛</div>
+    <h3>필록세라 사태 <span class="fr">Le phylloxéra</span></h3>
+    <p>1860년대 미국에서 건너온 작은 진딧물 필록세라가 포도나무 뿌리를 갉아먹으면서 유럽 포도밭의 대부분이 황폐해졌어요. 해결책은 이 벌레에 강한 미국산 포도나무 뿌리(대목)에 유럽 품종을 접붙이는 것이었고, 지금도 전 세계 포도밭 대부분이 이 방식으로 재배돼요. 칠레처럼 필록세라가 들어오지 않은 지역에는 접붙이지 않은 나무가 아직 남아 있어요.</p>
+    <div class="chips"><span class="chip">진딧물</span><span class="chip">접붙이기</span><span class="chip">19세기</span></div>
+  </article>
+
+  <article class="card">
+    <div class="emoji">⚖️</div>
+    <h3>1976 파리의 심판 <span class="fr">Le Jugement de Paris</span></h3>
+    <p>1976년 파리에서 프랑스 전문가들이 와인 이름을 가린 채 맛을 보는 블라인드 시음을 했는데, 레드와 화이트 모두 캘리포니아 와인이 1위를 차지했어요. 레드는 스태그스 립, 화이트는 샤토 몬텔레나였어요. 이 사건 이후 "좋은 와인은 프랑스에서만 나온다"는 인식이 깨지고 신대륙 와인이 주목받기 시작했어요.</p>
+    <div class="chips"><span class="chip">블라인드 시음</span><span class="chip">캘리포니아</span><span class="chip">신대륙</span></div>
+  </article>
+
+  <article class="card">
+    <div class="emoji">🛢️</div>
+    <h3>오크통과 코르크, 스크류캡 <span class="fr">Fût de chêne, bouchon, capsule à vis</span></h3>
+    <p>오크통에서 숙성하면 바닐라, 토스트, 견과류 같은 향이 더해지고 맛이 부드러워져요. 라벨이나 설명에 '오크 숙성'이 있으면 묵직하고 고소한 스타일을 떠올리면 됩니다. 스크류캡은 싸구려라는 오해가 있지만, 신선한 과일향을 지키는 데 유리해서 뉴질랜드와 호주에서는 고급 와인에도 많이 써요. 코르크 와인을 오래 보관할 때는 코르크가 마르지 않도록 병을 눕혀 두세요.</p>
+    <div class="chips"><span class="chip">바닐라 향</span><span class="chip">숙성</span><span class="chip">보관법</span></div>
+  </article>
+
+  <article class="card">
+    <div class="emoji">🌍</div>
+    <h3>테루아르 <span class="fr">Terroir</span></h3>
+    <p>테루아르는 포도가 자란 땅의 흙, 기후, 경사, 햇빛, 그리고 그곳 사람들의 전통까지 아우르는 말이에요. 같은 피노 누아라도 부르고뉴와 캘리포니아에서 맛이 다른 이유가 바로 이것이에요. 프랑스 와인 라벨에 품종 대신 지역 이름이 크게 쓰여 있는 것도 "어디서 자랐는지가 가장 중요하다"는 생각 때문이에요.</p>
+    <div class="chips"><span class="chip">토양</span><span class="chip">기후</span><span class="chip">원산지</span></div>
+  </article>
+
+  <article class="card">
+    <div class="emoji">🤵</div>
+    <h3>소믈리에 <span class="fr">Sommelier</span></h3>
+    <p>소믈리에는 레스토랑에서 와인을 고르고 관리하며 손님에게 추천해 주는 와인 전문가예요. 부담 갖지 말고 "오늘 먹는 음식과 어울리는, 너무 떫지 않은 레드로 5만 원 안팎이요"처럼 음식, 취향, 예산을 함께 말해 보세요. 와인 리스트에서 원하는 가격의 와인을 손가락으로 짚어 보이면 예산을 자연스럽게 전할 수 있어요.</p>
+    <div class="chips"><span class="chip">추천</span><span class="chip">와인 리스트</span><span class="chip">예산 말하기</span></div>
+  </article>
+</div>
+
+<div class="fact">💡 <b>입문 팁</b> 시음은 세 단계면 충분해요.
+  <ol class="steps">
+    <li><b>보기</b> 잔을 기울여 흰 배경에 비춰 보세요. 레드는 숙성될수록 가장자리가 벽돌색으로, 화이트는 금빛으로 짙어져요.</li>
+    <li><b>향 맡기</b> 잔을 가볍게 돌려 공기와 섞은 뒤 향을 맡아요. 과일, 꽃, 나무 향 중 무엇이 떠오르는지 생각해 보세요.</li>
+    <li><b>맛보기</b> 조금 머금고 입안 전체에 굴려 봐요. 산도(입에 침이 고이는 새콤함), 탄닌(떫은맛을 내는 성분), 단맛, 여운을 느껴 보세요.</li>
+  </ol>
+</div>
+
+<div class="fact">💡 <b>입문 팁</b> 레스토랑에서 소믈리에가 처음 조금 따라 주는 것은 "맛이 마음에 드는지" 묻는 게 아니라 와인이 상하지 않았는지 확인하라는 뜻이에요. 젖은 종이상자나 곰팡이 같은 냄새(코르크 오염)만 없다면 "좋네요" 하고 넘어가면 됩니다.</div>
+
+<div class="quiz">
+  <details><summary>Q. 동 페리뇽은 샴페인의 거품을 처음 발명한 사람이다.</summary><p>정답: X — 그는 오히려 거품을 줄이려 했고, 블렌딩과 품질 향상에 기여했어요.</p></details>
+  <details><summary>Q. 필록세라 사태 이후 유럽 포도나무는 대부분 미국산 뿌리에 접붙여 재배된다.</summary><p>정답: O — 필록세라에 강한 미국산 대목을 쓰는 방식이 지금도 표준이에요.</p></details>
+  <details><summary>Q. 1976년 파리의 심판에서 프랑스 와인이 레드와 화이트 모두 1위를 했다.</summary><p>정답: X — 두 부문 모두 캘리포니아 와인이 1위를 차지했어요.</p></details>
+  <details><summary>Q. 스크류캡 와인은 모두 저가 와인이다.</summary><p>정답: X — 신선함을 지키기 좋아 뉴질랜드, 호주 등에서는 고급 와인에도 널리 써요.</p></details>
+  <details><summary>Q. 테루아르는 흙뿐 아니라 기후, 지형까지 포함하는 개념이다.</summary><p>정답: O — 포도가 자란 환경 전체와 그 지역의 전통까지 아우르는 말이에요.</p></details>
+</div>
+  </section>
+
+  <footer>
+    <div class="badges"><span>BEST VIEWED IN 1024×768</span><span>♥ MADE WITH HTML</span><span>✦ Y2K READY</span></div>
+    🇫🇷 처음 만나는 프랑스 와인 · 입문자를 위한 백과사전 · 지나친 음주는 건강에 해롭습니다
+  </footer>
+</div>
+<button class="theme gel blue" id="theme" aria-label="밝기 바꾸기">🌙</button>
+<script>
+(function(){
+  var b=document.getElementById('theme'),r=document.documentElement;
+  b.onclick=function(){var d=r.getAttribute('data-theme')==='dark'||(!r.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    r.setAttribute('data-theme',d?'light':'dark');b.textContent=d?'🌙':'☀️'};
+  var links=document.querySelectorAll('nav.toc a');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-40% 0px -55% 0px'});
+  document.querySelectorAll('section').forEach(function(s){io.observe(s)});
+})();
+</script>
+</body>
+</html>
